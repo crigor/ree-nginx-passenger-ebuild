@@ -1,6 +1,6 @@
 SUMMARY
 =======
-This is mini-overlay for native install of Ruby Enterprise Edition and nginx with passenger.
+This is mini-overlay for native install of Ruby Enterprise Edition and nginx with passenger on Gentoo Linux.
 
 Versions
 --------
