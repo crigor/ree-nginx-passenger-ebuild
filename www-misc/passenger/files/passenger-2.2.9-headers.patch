@@ -1,0 +1,52 @@
+--- ext/nginx/ContentHandler.c.1	2010-01-15 11:30:31.000000000 +0200
++++ ext/nginx/ContentHandler.c	2010-01-15 12:01:33.069009116 +0200
+@@ -1025,7 +1025,7 @@
+ 
+                 h->key.len = sizeof("Server") - 1;
+                 h->key.data = (u_char *) "Server";
+-                h->value.data = (u_char *) (NGINX_VER " + Phusion Passenger " PASSENGER_VERSION " (mod_rails/mod_rack)");
++                h->value.data = (u_char *) ("nginx");
+                 h->value.len = ngx_strlen(h->value.data);
+                 h->lowcase_key = (u_char *) "server";
+             }
+--- lib/phusion_passenger/abstract_request_handler.rb.1	2010-01-15 11:30:31.000000000 +0200
++++ lib/phusion_passenger/abstract_request_handler.rb	2010-01-15 12:07:14.811634420 +0200
+@@ -458,18 +458,6 @@
+ 		end
+ 		return data
+ 	end
+-	
+-	def self.determine_passenger_header
+-		header = "Phusion Passenger (mod_rails/mod_rack) #{VERSION_STRING}"
+-		if File.exist?("#{File.dirname(__FILE__)}/../../enterprisey.txt") ||
+-		   File.exist?("/etc/passenger_enterprisey.txt")
+-			header << ", Enterprise Edition"
+-		end
+-		return header
+-	end
+-
+-public
+-	PASSENGER_HEADER = determine_passenger_header
+ end
+ 
+ end # module PhusionPassenger
+--- lib/phusion_passenger/rack/request_handler.rb.1	2010-01-15 11:30:31.000000000 +0200
++++ lib/phusion_passenger/rack/request_handler.rb	2010-01-15 12:10:37.594009241 +0200
+@@ -92,7 +92,6 @@
+ 			status, headers, body = @app.call(env)
+ 			begin
+ 				output.write("Status: #{status.to_i}#{CRLF}")
+-				output.write("X-Powered-By: #{PASSENGER_HEADER}#{CRLF}")
+ 				headers.each do |key, values|
+ 					if values.is_a?(String)
+ 						values = values.split("\n")
+--- lib/phusion_passenger/railz/request_handler.rb.1	2010-01-15 11:30:31.000000000 +0200
++++ lib/phusion_passenger/railz/request_handler.rb	2010-01-15 12:13:26.562759745 +0200
+@@ -61,7 +61,6 @@
+ 				alias passenger_orig_perform_action perform_action
+ 				
+ 				def perform_action(*whatever)
+-					headers[X_POWERED_BY] = PASSENGER_HEADER
+ 					passenger_orig_perform_action(*whatever)
+ 				end
+ 			end

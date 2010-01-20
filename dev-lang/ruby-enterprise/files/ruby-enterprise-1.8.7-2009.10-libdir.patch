@@ -1,0 +1,18 @@
+--- configure.in	2009-11-09 11:14:59.000000000 +0200
++++ configure_new.in	2010-01-15 10:33:33.031759528 +0200
+@@ -1725,12 +1725,12 @@
+     rubyw_install_name="$RUBYW_INSTALL_NAME"
+     ;;
+ esac
+-RUBY_LIB_PREFIX=`eval echo \\"${libdir}/ruby\\"`
++RUBY_LIB_PREFIX=`eval echo \\"${libdir}/rubyee\\"`
+ 
+ AC_ARG_WITH(sitedir,
+-	    [  --with-sitedir=DIR      site libraries in DIR [[LIBDIR/ruby/site_ruby]]],
++	    [  --with-sitedir=DIR      site libraries in DIR [[LIBDIR/rubyee/site_ruby]]],
+             [sitedir=$withval],
+-            [sitedir='${libdir}/ruby/site_ruby'])
++            [sitedir='${libdir}/rubyee/site_ruby'])
+ SITE_DIR=`eval echo \\"${sitedir}\\"`
+ 
+ case "$target_os" in
