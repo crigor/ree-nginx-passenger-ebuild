@@ -1,0 +1,11 @@
+--- mkconfig.rb	2009-11-09 11:14:59.000000000 +0200
++++ mkconfig_new.rb	2010-01-15 10:36:06.766759601 +0200
+@@ -141,7 +141,7 @@
+ print(*v_others)
+ print <<EOS
+   CONFIG["ruby_version"] = "$(MAJOR).$(MINOR)"
+-  CONFIG["rubylibdir"] = "$(libdir)/ruby/$(ruby_version)"
++  CONFIG["rubylibdir"] = "$(libdir)/rubyee/$(ruby_version)"
+   CONFIG["archdir"] = "$(rubylibdir)/$(arch)"
+   CONFIG["sitelibdir"] = "$(sitedir)/$(ruby_version)"
+   CONFIG["sitearchdir"] = "$(sitelibdir)/$(sitearch)"

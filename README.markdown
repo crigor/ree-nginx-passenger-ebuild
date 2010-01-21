@@ -4,7 +4,7 @@ This is mini-overlay for native (ebuild) install of Ruby Enterprise Edition and 
 
 Versions
 --------
-Ruby-Enterprise: 1.8.7.2009.10
+Ruby-Enterprise: 1.8.7.2010.01
 
 Nginx: 0.7.64
 
