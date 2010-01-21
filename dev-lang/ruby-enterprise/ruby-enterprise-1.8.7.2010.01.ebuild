@@ -5,8 +5,6 @@
 EAPI="2"
 
 inherit versionator eutils flag-o-matic autotools
-replace-flags -O3 -Os
-replace-flags -O2 -Os
 
 MY_PV=$(replace_version_separator 3 '-')
 S="${WORKDIR}/${PN}-${MY_PV}/source"
