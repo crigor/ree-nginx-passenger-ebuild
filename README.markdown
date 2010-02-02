@@ -6,7 +6,7 @@ Versions
 --------
 Ruby-Enterprise: 1.8.7.2010.01
 
-Nginx: 0.7.64
+Nginx: 0.7.65
 
 Passenger: 2.2.9
 
